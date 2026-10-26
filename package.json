@@ -1,0 +1,25 @@
+{
+  "name": "nestjs-pino-root-logger-repro",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build --silent && node dist/main.js",
+    "start:async": "npm run build --silent && MODE=async node dist/main.js",
+    "start:injected": "npm run build --silent && INJECTED=1 node dist/main.js",
+    "matrix": "npm run build --silent && node scripts/matrix.js"
+  },
+  "dependencies": {
+    "@nestjs/common": "11.1.6",
+    "@nestjs/core": "11.1.6",
+    "@nestjs/platform-express": "11.1.6",
+    "nestjs-pino": "5.3.1",
+    "pino": "10.0.0",
+    "pino-http": "11.0.0",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "24.3.0",
+    "typescript": "5.9.2"
+  }
+}
