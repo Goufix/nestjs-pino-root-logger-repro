@@ -1,13 +1,15 @@
 # nestjs-pino: `LoggerModule` params ignored since 5.1.0
 
-`LoggerModule` is configured with:
+`LoggerModule` is configured with ([`src/logger.config.ts`](src/logger.config.ts)):
 
 ```ts
 { pinoHttp: { autoLogging: false, customProps: () => ({ service: 'greeting-api' }) } }
 ```
 
-`GreetingService` creates its own logger with `new PinoLogger({ renameContext: 'greeting' })` and logs
-`greeting sent` on `GET /hello`.
+[`GreetingService`](src/greeting/greeting.service.ts) creates its own logger with
+`new PinoLogger({ renameContext: 'greeting' })` and logs `greeting sent` on `GET /hello`.
+[`InjectedGreetingService`](src/greeting/injected-greeting.service.ts) is the same service with `PinoLogger`
+injected by Nest, used as the control.
 
 ## Run
 
